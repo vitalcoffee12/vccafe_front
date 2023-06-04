@@ -3,7 +3,7 @@ import Icon from "./Icon";
 import { Menu } from "../resources/Menu";
 import { Color } from "../resources/Color";
 
-export default function TopMenu(props: { menuList: Menu[] }) {
+export default function SideMenu(props: { menuList: Menu[] }) {
   return (
     <>
       {props.menuList.map((v, index) => {
@@ -16,16 +16,24 @@ export default function TopMenu(props: { menuList: Menu[] }) {
                 alignContent: "center",
                 marginRight: "15px",
                 color: Color.Main,
+                borderLeft: "3px solid white",
+                alignItems: "center",
+                backgroundColor: "#FFFFFF54",
+                padding: "4px",
+                paddingBottom: "6px",
+                paddingRight: "8px",
+                borderRadius: "10px",
               }}
             >
-              <span style={{ marginRight: "5px" }}>
+              <span
+                style={{
+                  marginRight: "5px",
+                }}
+              >
                 <Icon icon={v.icon} color={Color.Main} />
               </span>
               <span>{v.label}</span>
             </Link>
-            {props.menuList.length - 1 !== index && (
-              <span style={{ color: Color.Main, marginRight: "15px" }}>˚</span>
-            )}
           </span>
         );
       })}

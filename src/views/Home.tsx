@@ -1,31 +1,22 @@
-import { Link } from "react-router-dom";
+import logo from "../resources/logo.png";
 
 export default function Home() {
   return (
-    <div style={{ color: "#492749", margin: "30px 15px 15px 30px" }}>
-      <h1 style={{ fontSize: "42px", marginBottom: "15px" }}>
-        VC CAFE에 오신 것을 환영합니다!
-      </h1>
-      <span>
-        로그인을 하시면 소개, 기능, 갤러리의 메뉴를 확인할 수 있습니다.
-      </span>
-      <br></br>
-      <br></br>
-      <br></br>
-      <span
-        style={{
-          borderRadius: "15px",
-          background: "white",
-          padding: "3px 10px 3px 10px",
-        }}
-      >
-        테스트 계정 정보{" "}
-      </span>
-      <br></br>
-      <br></br>
-      <span>id : admin </span>
-      <br></br>
-      <span>password : admin </span>
-    </div>
+    <div
+      style={{
+        width: "1180px",
+        border: "1px solid red",
+        margin: "0 auto",
+        marginTop: "10px",
+        display: "grid",
+        height: "calc(100vh - 360px)",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gridTemplateRows: "repeat(12,1fr)",
+        gap: "10px",
+        backgroundImage: `url(${logo})`,
+        backgroundSize: "50vw",
+        backgroundRepeat: "no-repeat",
+      }}
+    ></div>
   );
 }
