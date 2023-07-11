@@ -91,6 +91,7 @@ export default function SignIn() {
           minHeight: "550px",
         }}
       >
+        {/** login */}
         <div>
           <div style={{ paddingLeft: "11px", color: Color.Main }}>
             {isLogin && <span>로그인</span>}
@@ -150,7 +151,8 @@ export default function SignIn() {
           >
             <button
               style={{
-                background: "linear-gradient(20deg, #CF90D6, #9A90D6)",
+                background:
+                  "linear-gradient(20deg,var(--color-primary), var(--color-secondary))",
                 color: "white",
                 width: "100%",
                 height: "30px",
@@ -185,6 +187,76 @@ export default function SignIn() {
               {isLogin && "신규 계정 가입"}
               {!isLogin && "돌아가기"}
             </span>
+          </div>
+          <div
+            style={{
+              width: "95%",
+              textAlign: "right",
+              fontSize: "14px",
+            }}
+          >
+            <span
+              style={{
+                cursor: "pointer",
+                color: "var(--color-primary)",
+                textDecoration: "underline",
+              }}
+            >
+              계정 등록
+            </span>
+            {/** sign up */}
+            <div>
+              <div
+                style={{
+                  margin: "10px",
+                }}
+              >
+                <input type="text" placeholder="id"></input>
+              </div>
+              <div
+                style={{
+                  margin: "10px",
+                }}
+              >
+                <input type="text" placeholder="password"></input>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  margin: "10px",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                }}
+              >
+                <button
+                  style={{
+                    background:
+                      "linear-gradient(20deg,var(--color-primary), var(--color-secondary))",
+                    color: "white",
+                    width: "100%",
+                  }}
+                >
+                  계정 등록
+                </button>
+              </div>
+              <div
+                style={{
+                  width: "95%",
+                  textAlign: "right",
+                  fontSize: "14px",
+                }}
+              >
+                <span
+                  style={{
+                    cursor: "pointer",
+                    color: "var(--color-primary)",
+                    textDecoration: "underline",
+                  }}
+                >
+                  계정 등록
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
