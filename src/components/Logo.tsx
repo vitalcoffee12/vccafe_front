@@ -1,3 +1,13 @@
 export default function Logo() {
-  return <span>logo</span>;
+  return (
+    <span
+      className="font-hahmlet"
+      style={{
+        fontSize: "48px",
+        WebkitTextStroke: "1px white",
+      }}
+    >
+      World of the Munji
+    </span>
+  );
 }
