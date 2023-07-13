@@ -8,7 +8,7 @@ export default function Icon(props: {
       <span
         className="material-symbols-outlined"
         style={{
-          color: props.color ?? "white",
+          color: props.color ?? "black",
           fontSize: props.size ?? 18,
         }}
       >

@@ -3,7 +3,7 @@ import { Color } from "../resources/Color";
 import { axiosManager } from "../axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../reducer/userSlice";
+import { userLogin } from "../reducer/userSlice";
 
 export interface iLoginInfo {
   id: string;
@@ -54,7 +54,7 @@ export default function SignIn() {
             alert("로그인 실패, 계정 정보를 확인해 주세요.");
           } else if (data.code === 200) {
             nav("/");
-            dispatch(loginUser(data.result));
+            dispatch(userLogin(data.result));
           }
         }
       }

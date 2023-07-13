@@ -175,6 +175,9 @@ a:active {
 .font-grand {
   font-family: "Grandiflora One", serif;
 }
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
 
 /* scroll bar */
 .scroll-box {

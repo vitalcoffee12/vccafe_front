@@ -9,7 +9,7 @@ export default function Logo() {
         WebkitTextStroke: "1px white",
       }}
     >
-      World of the Munji
+      Locus of Particles
     </span>
   );
 }
