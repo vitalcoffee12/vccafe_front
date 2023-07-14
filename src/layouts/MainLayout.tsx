@@ -1,14 +1,15 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import { useSelector } from "react-redux";
 
 import "./MainLayout.css";
 import SideMenu from "../components/SideMenu";
-import { sideMenu } from "../resources/Menu";
+import { getMenu } from "../resources/Menu";
 
 export default function MainLayout() {
   const user = useSelector((state: any) => state.user);
   const nav = useNavigate();
+  const location = useLocation().pathname.split("/");
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function MainLayout() {
         {/* 메인 컨테이너*/}
         <div className="continer">
           <div className="item-left">
-            <SideMenu menuList={sideMenu} />
+            <SideMenu menuList={getMenu(location[1] ?? "")} />
           </div>
           {/* 메인 아울렛*/}
           <div className="item-main">
@@ -54,21 +55,14 @@ export default function MainLayout() {
               {user.name !== "" && (
                 <button
                   onClick={(e) => {
-                    nav("/user");
+                    nav("/user/account");
                   }}
                 >
                   {user.nickname} 님
                 </button>
               )}
             </div>
-            <div className="notice">
-              <ul>
-                <li>공지사항입니다1 notice</li>
-                <li>공지사항입니다2 notice</li>
-                <li>공지사항입니다3 notice</li>
-                <li>공지사항입니다4 notice</li>
-              </ul>
-            </div>
+            <div className="notice"></div>
           </div>
         </div>
       </div>

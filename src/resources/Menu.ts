@@ -1,13 +1,17 @@
 export interface Menu {
   label: string;
-  link?: string;
   icon?: string;
-  children?: Menu[];
+  children?: MenuItem[];
 }
 
-export const sideMenu: Menu[] = [
+export interface MenuItem {
+  label: string;
+  link: string;
+  icon: string;
+}
+
+const mainMenu: Menu[] = [
   {
-    link: "/board/1",
     label: "공지사항",
     icon: "notifications",
     children: [
@@ -15,15 +19,6 @@ export const sideMenu: Menu[] = [
         link: "/board/1",
         label: "공지사항",
         icon: "notifications",
-        children: [
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-        ],
       },
       { link: "/board/1", label: "공지사항", icon: "notifications" },
       { link: "/board/1", label: "공지사항", icon: "notifications" },
@@ -34,7 +29,6 @@ export const sideMenu: Menu[] = [
     ],
   },
   {
-    link: "/board/2",
     label: "세계관",
     icon: "map",
     children: [
@@ -42,15 +36,6 @@ export const sideMenu: Menu[] = [
         link: "/board/1",
         label: "공지사항",
         icon: "notifications",
-        children: [
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-          { link: "/board/1", label: "공지사항", icon: "notifications" },
-        ],
       },
       { link: "/board/1", label: "공지사항", icon: "notifications" },
       { link: "/board/1", label: "공지사항", icon: "notifications" },
@@ -61,8 +46,36 @@ export const sideMenu: Menu[] = [
     ],
   },
   {
-    link: "/board/3",
     label: "F&Q",
     icon: "live_help",
   },
 ];
+
+const userMenu: Menu[] = [
+  {
+    label: "마이 페이지",
+    icon: "window",
+    children: [
+      {
+        label: "계정 관리",
+        link: "/user/account",
+        icon: "account_box",
+      },
+      {
+        label: "캐릭터 관리",
+        link: "/user/character",
+        icon: "sentiment_satisfied",
+      },
+    ],
+  },
+];
+
+export function getMenu(link: string) {
+  switch (link) {
+    case "user":
+      return userMenu;
+
+    default:
+      return mainMenu;
+  }
+}

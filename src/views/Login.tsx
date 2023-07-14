@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Color } from "../resources/Color";
 import { axiosManager } from "../axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../reducer/userSlice";
+import { userLogin } from "../reducers/slices/userSlice";
 import { useSelector } from "react-redux";
 
 export interface iLoginInfo {
@@ -49,9 +49,11 @@ export default function Login() {
     }
   };
 
-  if (user.name !== "") {
-    nav("/");
-  }
+  useEffect(() => {
+    if (user.name !== "") {
+      nav("/");
+    }
+  }, []);
 
   return (
     <>

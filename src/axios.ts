@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const axiosManager = axios.create({
+  //baseURL: "http://vccafe.cafe24app.com/api",
   baseURL: "http://localhost:8001/api",
   headers: {
     Accept: "application/json",

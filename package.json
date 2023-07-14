@@ -16,6 +16,7 @@
     "@types/react-draft-wysiwyg": "^1.13.4",
     "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "^5.3.3",
+    "@types/redux-persist": "^4.3.1",
     "axios": "^1.4.0",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
@@ -27,6 +28,7 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
