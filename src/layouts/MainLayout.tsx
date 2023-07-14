@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import { useSelector } from "react-redux";
 
@@ -8,13 +8,22 @@ import { sideMenu } from "../resources/Menu";
 
 export default function MainLayout() {
   const user = useSelector((state: any) => state.user);
+  const nav = useNavigate();
+
   return (
     <>
       <div className="background">
         {/* 탑 로고*/}
         <div
           className="item-navbar"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            cursor: "pointer",
+          }}
+          onClick={(e) => {
+            nav("/");
+          }}
         >
           <Logo />
         </div>
@@ -33,7 +42,24 @@ export default function MainLayout() {
           </div>
           <div className="item-top">
             <div className="inner">
-              <button>로그인</button>
+              {user.name === "" && (
+                <button
+                  onClick={(e) => {
+                    nav("/login");
+                  }}
+                >
+                  로그인
+                </button>
+              )}
+              {user.name !== "" && (
+                <button
+                  onClick={(e) => {
+                    nav("/user");
+                  }}
+                >
+                  {user.nickname} 님
+                </button>
+              )}
             </div>
             <div className="notice">
               <ul>

@@ -2,13 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./views/About";
 import Home from "./views/Home";
 import MainLayout from "./layouts/MainLayout";
-import SignIn from "./views/SignIn";
 import Error from "./views/Error";
 import Board from "./views/Board";
-import { BoardNotice, BoardWorld } from "./resources/Boards";
+
 import { Provider } from "react-redux";
 import store from "./reducer/store";
 import MyEditor from "./components/MyEditor";
+import Login from "./views/Login";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/signin",
-        element: <SignIn />,
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/board/:id",
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <SignIn />,
+        element: <Login />,
       },
       {
         path: "/battle",
@@ -41,8 +41,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/event",
-        element: <SignIn />,
+        element: <Login />,
       },
+      {
+        path: "*",
+        element: <Error />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <MainLayout />,
+    children: [
       {
         path: "*",
         element: <Error />,
